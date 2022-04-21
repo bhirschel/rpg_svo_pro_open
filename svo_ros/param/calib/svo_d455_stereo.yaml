@@ -1,0 +1,76 @@
+cameras:
+- T_B_C:
+    cols: 4
+    data: [0.9995895516132334, -0.005240012536758886, 0.02816505945794449, -0.026411010537556314,
+      0.006051719488733968, 0.9995665259105149, -0.028812097639940592, 0.005466963697616972,
+      -0.028001874881597055, 0.02897071880016791, 0.999187966528479, 0.001788235883375915,
+      0.0, 0.0, 0.0, 1.0]
+    rows: 4
+  calib_date: 0
+  camera:
+    distortion:
+      parameters:
+        cols: 1
+        data: [0.027935376100044797, 0.03511131773175079, -0.00788041398845487, 0.006677041791795516]
+        rows: 4
+      type: radial-tangential
+    image_height: 480
+    image_width: 640
+    intrinsics:
+      cols: 1
+      data: [399.0024581473677, 399.107713700555, 330.5502335903661, 232.34356498772945]
+      rows: 4
+    label: cam0
+    line-delay-nanoseconds: 0
+    type: pinhole
+  description: /rgbd_camera/infra1/image_rect_raw
+  serial_no: 0
+- T_B_C:
+    cols: 4
+    data: [0.9999744209938786, -0.00709113130885479, 0.0009344595858542682, 0.06862331167363603,
+      0.007110317202867076, 0.9997229165672026, -0.022439551680914823, 0.005854266639334029,
+      -0.0007750788551032092, 0.0224456220035537, 0.9997477648415332, 0.0010358894210355156,
+      0.0, 0.0, 0.0, 1.0]
+    rows: 4
+  calib_date: 0
+  camera:
+    distortion:
+      parameters:
+        cols: 1
+        data: [0.024038829337909587, 0.020987576908502052, -0.004443037842424018,
+          0.0034647570089133004]
+        rows: 4
+      type: radial-tangential
+    image_height: 480
+    image_width: 640
+    intrinsics:
+      cols: 1
+      data: [400.0096559995078, 399.6195836605581, 319.73621371469375, 234.61719411841432]
+      rows: 4
+    label: cam1
+    line-delay-nanoseconds: 0
+    type: pinhole
+  description: /rgbd_camera/infra2/image_rect_raw
+  serial_no: 0
+label: svo_d455_stereo
+
+imu_params:
+  acc_max: 176.0
+  delay_imu_cam: 0.0
+  g: 9.8082
+  imu_rate: 200.0
+  max_imu_delta_t: 0.01
+  omega_max: 7.8
+  sigma_acc_bias_c: 0.000433
+  sigma_acc_c: 0.00186
+  sigma_integration: 0.0
+  sigma_omega_bias_c: 2.66e-05
+  sigma_omega_c: 0.000187
+
+imu_initialization:
+  acc_bias: [0.0, 0.0, 0.0]
+  acc_bias_sigma: 0.00186
+  omega_bias: [0.0, 0.0, 0.0]
+  omega_bias_sigma: 0.000187
+  velocity: [0.0, 0.0, 0.0]
+  velocity_sigma: 1.0

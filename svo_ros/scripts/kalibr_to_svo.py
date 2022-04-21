@@ -1,4 +1,5 @@
 #!/usr/bin/python
+import os.path
 
 import yaml
 import sys
@@ -30,7 +31,7 @@ if args.imu is None:
 
 # cameras
 with open(args.kalibr, 'r') as f:
-    K = yaml.load(f)
+    K = yaml.load(f, Loader=yaml.FullLoader)
 cams = []
 for c in K:
     cam = UnsortableOrderedDict()
@@ -73,7 +74,7 @@ S['label'] = args.kalibr
 # IMU
 if has_imu:
     with open(args.imu, 'r') as f:
-        I = yaml.load(f)
+        I = yaml.load(f, Loader=yaml.FullLoader)
     Sip = UnsortableOrderedDict()
     Sip['imu_params'] = UnsortableOrderedDict()
     Sip['imu_params']['delay_imu_cam'] = 0.0
@@ -97,9 +98,11 @@ if has_imu:
     Sii['imu_initialization']['omega_bias_sigma'] = I['gyroscope_noise_density']
     Sii['imu_initialization']['acc_bias_sigma'] = I['accelerometer_noise_density']
 
-output_file = 'svo_' + args.kalibr
+path = os.path.normpath(args.kalibr)
+filename = path.split(os.sep)[-1]
+output_file = path.replace(filename, 'svo_' + filename)
 print('Writing to {0}.'.format(output_file))
-f = open(output_file, 'w')
+f = open(output_file, 'w+')
 f.write(yaml.dump(S, default_flow_style=None) )
 if has_imu:
     f.write('\n')
